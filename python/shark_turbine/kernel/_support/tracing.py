@@ -154,6 +154,25 @@ class CompiledContext(BaseContext):
     ### Math Operations
     ### ========================================================================
 
+    def handle_cf_range(
+        self,
+        op,
+        start: Index,
+        stop: Optional[Index] = None,
+        step: Optional[Index] = None,
+    ):
+        if stop is None:
+            stop = start
+            start = Index(0)
+        if step is None:
+            step = Index(1)
+
+        return range(start, stop, step)
+
+    ### ========================================================================
+    ### Math Operations
+    ### ========================================================================
+
     def handle_vector_add(self, op, lhs: Vector, rhs: Vector):
         return self.tracer.create_proxy(
             "call_function",

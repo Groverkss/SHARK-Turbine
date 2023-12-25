@@ -19,6 +19,7 @@ __all__ = [
     "exp",
     "max",
     "sum",
+    "range",
 ]
 
 
@@ -37,3 +38,5 @@ exp = ops.vector_exp
 
 max = ops.vector_max
 sum = ops.vector_sum
+
+range = ops.cf_range
